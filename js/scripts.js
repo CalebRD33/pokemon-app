@@ -19,14 +19,14 @@ let pokemonList = [
     },
 ];
 
-
-for (let i = 0; i < pokemonList.length; i++) {
-    //loop through each object in the array
-    document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + 'ft)');
+// 'for each' loop function to call objects in pokemonList array 
+function callPokemon(pokemon) {
+    document.write(pokemon.name + ' (height: ' + pokemon.height + 'ft)');
     //check the height of each pokemon
-    if (pokemonList[i].height > 6) {
-        document.write(' -Wow. That\'s big!')
+    if (pokemon.height > 6) {
+        document.write(' - Wow. That\'s big!')
     };
     document.write('<br>')
 }
 
+pokemonList.forEach(callPokemon);
