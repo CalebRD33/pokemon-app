@@ -36,24 +36,51 @@ let pokemonRepository = (function () {
         }        
     } 
 
+    // Advanced way of creating a separate function as a click listener
+    function pokemonClickListener(pokemon) {
+        return function() {
+            showDetails(pokemon);
+        };
+    }
+
+    function addListItem(pokemon) {
+        let pokemonList = document.querySelector('.pokemon-list');
+        let listItem = document.createElement('li');
+        let button = document.createElement('button');
+        button.innerText = pokemon.name;
+        button.classList.add('button');
+
+        // Advanced way of creating a separate function as a click listener
+        button.addEventListener('click', pokemonClickListener(pokemon));
+
+        // original event listener that runs showDetails() function when clicked
+        /* button.addEventListener('click', function() {
+            showDetails(pokemon);
+        }); */    
+
+        listItem.appendChild(button);
+        pokemonList.appendChild(listItem);
+    }
+
+    function showDetails(pokemon) {
+        console.log(pokemon.name);
+    } 
+    
+
     return {
         getAll: getAll,
-        add: add
+        add: add,
+        addListItem: addListItem
     }
 })()
 
-// tested conditional to make sure the parameters in the add function are working properly
-pokemonRepository.add({name: 'Charmander', height: '3.33', types: 'Fire'});
-pokemonRepository.add("Charmander");
+
+
 
 // 'for each' loop function to call objects in pokemonList array 
 function callPokemon(pokemon) {
-    document.write(pokemon.name + ' (height: ' + pokemon.height + 'ft)');
-    //conditional to check the height of each pokemon
-    if (pokemon.height > 6) {
-        document.write(' - Wow. That\'s big!')
-    };
-    document.write('<br>')
+    pokemonRepository.addListItem(pokemon);
 }
 
 pokemonRepository.getAll().forEach(callPokemon)
+
