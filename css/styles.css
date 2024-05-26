@@ -1,5 +1,6 @@
 
 body {
+    background-color: antiquewhite;
     font-family:  "Montserrat", sans-serif;
     font-weight: 400;
     font-size: 16px;
@@ -7,32 +8,81 @@ body {
   }
   
   h1 {
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 700;
+    text-align: center;
   }
 
   .page-header {
-    display: flex;
+    /*display: flex;*/
     width: 100%;
     padding: 20px;
   }
 
   .pokemon-list {
     list-style-type: none;
-    padding: 0;
+    text-align: center;
+    padding: 0;    
   }
 
   .button {
+    width: 250px;
+    height: 50px;
     border: none;
     font-family: inherit;
-    background-color: blue;
+    font-size: inherit;
+    background-color: rgb(16, 16, 1);
     color: white;
     text-decoration: none;
+    text-transform: uppercase;
     padding: 10px;
     margin: 5px;
     border-radius: 5px;
   }
 
+#pokemon-modal {
+  display: none;
+}
 
-
+#pokemon-modal.is-visible {
+  position: fixed;
+  padding: 20px;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
   
+  /* to show it above other content */
+  z-index: 999; 
+  
+  /* to allow scrolling if the screen is not high enough*/
+  overflow: auto; 
+  
+  /* this is used to center the modal */
+  display: grid;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.modal {
+  margin: auto;
+  display: inline-block;
+  box-sizing: border-box;
+  background: #fff;
+  padding: 15px;
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+}
+
+.modal-close {
+  float: right;
+  -webkit-appearance: none; 
+  border: 0;
+  background: none;
+  color: #777;
+  text-decoration: underline;
+}
+
