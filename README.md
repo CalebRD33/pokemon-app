@@ -1,6 +1,4 @@
-# Pokemon App
-
-## Table of Content
+## Table of Contents
 
 - [Overview](#overview)
 - [Live Demo](#live-demo)
