@@ -15,7 +15,7 @@
 
 ## Live Demo
 
-[Click here for the Live Site](https://mittal-malankiya-pokedex.netlify.app)
+[Click here for the Live Site](https://calebrd33.github.io/pokemon-app/)
 
 ## Project Dependencies
 
